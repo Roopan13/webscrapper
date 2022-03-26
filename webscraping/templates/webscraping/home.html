@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'webscraping/css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'webscraping/css/style.css' %}" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">WebScrapper</a>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">FlipKart Content</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    <div class="container-fluid">
+        <div class="row">
+    {% for t, p, i in list %}
+    <div class="col-sm-3">
+        <div class="card" style="width: 22rem; height: 450px;">
+            <img src='{{i}}'class="card-img-top" alt="{{x.source.name}}" style="height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title">{{t}}</h5>
+              <p class="card-text">{{x.description|truncatechars:150}}</p>
+              <h5 class="alert alert-info">{{p}}</h5>
+            </div>
+          </div>
+          <hr style="color: white;">
+    </div>
+    {% endfor %}
+</div> 
+</div>
+
+    <script src="{% static 'webscraping/js/jquery.js' %}"></script>
+    <script src="{% static 'webscraping/js/popper.js' %}"></script>
+    <script src="{% static 'webscraping/js/bootstrap.js' %}"></script>
+</body>
+</html>
